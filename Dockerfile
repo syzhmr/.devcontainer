@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/miniconda:1-ubuntu-24.04
+FROM mcr.microsoft.com/devcontainers/miniconda:1.2.7-3
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
