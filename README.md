@@ -42,12 +42,38 @@ codex --version
 
 初回起動時に、開いたフォルダーの直下へ `Python`、`LaTeX`、`SageMath`、`Lean4` フォルダーを作成します。まだ Git repository でない場合は `git init` も実行します。
 
+また、コンテナ内の `~/.ssh/id_ed25519` が存在しない場合は、初回起動時に GitHub 用として使える SSH 鍵を作成します。既存の秘密鍵は上書きしません。
+
+自動生成される秘密鍵は、初回セットアップを止めないためパスフレーズなしです。必要な場合は、あとから次のコマンドでパスフレーズを追加できます。
+
+```bash
+ssh-keygen -p -f ~/.ssh/id_ed25519
+```
+
+作成された公開鍵は初回セットアップ時のターミナルに表示されます。GitHub で `Settings` → `SSH and GPG keys` → `New SSH key` を開き、`Key type` に `Authentication Key` を選んで登録してください。
+
+公開鍵は次のコマンドでも確認できます。
+
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+`~/.ssh/id_ed25519` は秘密鍵で、他人に見せないでください。末尾に `.pub` が付く `~/.ssh/id_ed25519.pub` は公開鍵で、GitHub に登録するためのものです。
+
+GitHub に公開鍵を登録したあと、既存の repository が HTTPS remote を使っている場合は SSH remote に切り替えます。
+
+```bash
+git remote set-url origin git@github.com:USER/REPOSITORY.git
+```
+
 Git でコミットするには、初回だけ名前とメールアドレスを設定してください。
 
 ```bash
 git config --global user.name "Your Name"
 git config --global user.email "you@example.com"
 ```
+
+公開 repository で個人メールアドレスを出したくない場合は、GitHub の no-reply メールアドレスなど、公開してよい値を設定してください。
 
 Codex CLI を使う場合は、各ユーザーが自分の ChatGPT アカウントまたは API key でログインします。
 
