@@ -107,7 +107,7 @@ cd my-project
 
 ### 5. VS Code で作業フォルダーを開く
 
-Ubuntu のターミナルで、作業フォルダーに入った状態で次を実行します。
+VS Code で開くのは `.devcontainer` フォルダーそのものではなく、その親フォルダーである作業フォルダーです。Ubuntu のターミナルで、作業フォルダーに入った状態で次を実行します。
 
 ```bash
 code .
@@ -117,7 +117,7 @@ code .
 
 ### 6. Dev Container を起動する
 
-VS Code のコマンドパレットを開き、次を実行します。
+VS Code のコマンドパレットを開き、次を実行します。コマンドパレットは Windows では `Ctrl+Shift+P`、Mac では `Cmd+Shift+P` で開けます。入力欄に次のコマンド名を入力し、候補から選択してください。
 
 ```text
 Dev Containers: Reopen in Container
@@ -180,7 +180,7 @@ my-project
 └── .devcontainer
 ```
 
-VS Code で `my-project` を開きます。ターミナルから開く場合は、作業フォルダーで次を実行します。
+VS Code で開くのは `.devcontainer` フォルダーそのものではなく、その親フォルダーである `my-project` です。ターミナルから開く場合は、作業フォルダーで次を実行します。
 
 ```bash
 code .
@@ -188,7 +188,7 @@ code .
 
 ### 4. Dev Container を起動する
 
-VS Code のコマンドパレットを開き、次を実行します。
+VS Code のコマンドパレットを開き、次を実行します。コマンドパレットは `Cmd+Shift+P` で開けます。入力欄に次のコマンド名を入力し、候補から選択してください。
 
 ```text
 Dev Containers: Reopen in Container
@@ -232,7 +232,7 @@ codex --version
 
 ### `.devcontainer` の置き方
 
-VS Code で開くのは、`.devcontainer` フォルダーそのものではなく、`.devcontainer` フォルダーが入っている作業フォルダーです。
+VS Code で開くのは、`.devcontainer` フォルダーそのものではなく、`.devcontainer` フォルダーが入っている親フォルダー、つまり作業フォルダーです。
 
 ```text
 作業フォルダー
