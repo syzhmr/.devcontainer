@@ -1,0 +1,35 @@
+{
+  "name": "Mathematics Dev Environment",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  "remoteUser": "vscode",
+  "remoteEnv": {
+    "PATH": "/home/vscode/.local/bin:/home/vscode/.elan/bin:/opt/conda/bin:${containerEnv:PATH}"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "lov3.sagemath-enhanced",
+        "james-yu.latex-workshop",
+        "leanprover.lean4",
+        "yzhang.markdown-all-in-one",
+        "davidanson.vscode-markdownlint",
+        "tamasfe.even-better-toml"
+      ],
+      "settings": {
+        "files.associations": {
+          "*.sage": "sage"
+        },
+        "python.defaultInterpreterPath": "/opt/conda/bin/python",
+        "sagemathEnhanced.interpreterPath": "sage",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/setup-workspace.sh && python --version && sage --version && lean --version && lake --version && latexmk -version && pdfgrep --version && codex --version"
+}

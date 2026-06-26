@@ -1,0 +1,10 @@
+name: base
+channels:
+  - conda-forge
+dependencies:
+  - python=3.13
+  - sage=10.9
+  - ipykernel
+  - jupyterlab
+  - notebook
+  - matplotlib
