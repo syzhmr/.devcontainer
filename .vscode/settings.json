@@ -1,0 +1,65 @@
+{
+  "python.defaultInterpreterPath": "/opt/conda/bin/python",
+  "python.terminal.activateEnvironment": false,
+  "jupyter.jupyterServerType": "local",
+  "files.associations": {
+    "*.sage": "sage",
+    "*.tex": "latex"
+  },
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk (upLaTeX)",
+      "tools": ["latexmk-uplatex"]
+    },
+    {
+      "name": "latexmk (pLaTeX)",
+      "tools": ["latexmk-platex"]
+    },
+    {
+      "name": "latexmk (LuaLaTeX)",
+      "tools": ["latexmk-lualatex"]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk-uplatex",
+      "command": "latexmk",
+      "args": [
+        "-pdfdvi",
+        "-latex=uplatex %O %S",
+        "-e",
+        "$dvipdf='dvipdfmx %O -o %D %S'",
+        "-interaction=nonstopmode",
+        "-synctex=1",
+        "-halt-on-error",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "latexmk-platex",
+      "command": "latexmk",
+      "args": [
+        "-pdfdvi",
+        "-latex=platex %O %S",
+        "-e",
+        "$dvipdf='dvipdfmx %O -o %D %S'",
+        "-interaction=nonstopmode",
+        "-synctex=1",
+        "-halt-on-error",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "latexmk-lualatex",
+      "command": "latexmk",
+      "args": [
+        "-lualatex",
+        "-interaction=nonstopmode",
+        "-synctex=1",
+        "-halt-on-error",
+        "%DOC%"
+      ]
+    }
+  ],
+  "latex-workshop.view.pdf.viewer": "tab"
+}

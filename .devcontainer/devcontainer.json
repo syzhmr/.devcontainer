@@ -1,5 +1,5 @@
 {
-  "name": "Mathematics Dev Environment",
+  "name": "Mathematics Research Environment",
   "build": {
     "dockerfile": "Dockerfile",
     "context": "."
@@ -22,14 +22,9 @@
         "tamasfe.even-better-toml"
       ],
       "settings": {
-        "files.associations": {
-          "*.sage": "sage"
-        },
-        "python.defaultInterpreterPath": "/opt/conda/bin/python",
-        "sagemathEnhanced.interpreterPath": "sage",
         "terminal.integrated.defaultProfile.linux": "bash"
       }
     }
   },
-  "postCreateCommand": "bash .devcontainer/setup-workspace.sh && python --version && sage --version && lean --version && lake --version && latexmk -version && pdfgrep --version && codex --version"
+  "postCreateCommand": "bash .devcontainer/setup-workspace.sh \"${containerWorkspaceFolder}\" && python --version && sage --version && lean --version && lake --version && latexmk -version && pdfgrep --version && codex --version"
 }

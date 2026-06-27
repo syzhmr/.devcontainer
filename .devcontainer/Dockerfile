@@ -4,22 +4,21 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ARG DEBIAN_FRONTEND=noninteractive
 ARG USERNAME=vscode
-ARG LEAN_TOOLCHAIN=leanprover/lean4:v4.31.0
+ARG DEFAULT_LEAN_TOOLCHAIN=leanprover/lean4:v4.31.0
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
+        bubblewrap \
         build-essential \
         ca-certificates \
         curl \
-        bubblewrap \
         fonts-noto-cjk \
         fonts-noto-color-emoji \
         git \
         latexmk \
         make \
-        openssh-client \
-        perl \
         pdfgrep \
+        perl \
         poppler-utils \
         ripgrep \
         texlive-fonts-recommended \
@@ -42,7 +41,7 @@ USER ${USERNAME}
 ENV PATH="/home/${USERNAME}/.local/bin:/home/${USERNAME}/.elan/bin:/opt/conda/bin:${PATH}"
 
 RUN curl -fsSL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh \
-    | sh -s -- -y --default-toolchain "${LEAN_TOOLCHAIN}" \
+    | sh -s -- -y --default-toolchain "${DEFAULT_LEAN_TOOLCHAIN}" \
     && lean --version \
     && lake --version
 
