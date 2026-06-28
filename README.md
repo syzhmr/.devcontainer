@@ -4,6 +4,11 @@
 
 この repository は、環境構築の手順を長く説明するよりも、研究用 repository を VS Code で開いたときに同じ環境を再現できることを重視しています。
 
+## 配布 URL
+
+- devcontainer: <https://github.com/syzhmr/.devcontainer>
+- 勉強ノートテンプレート: <https://github.com/syzhmr/codex-study-note-template>
+
 ## 前提ソフト
 
 必須:
