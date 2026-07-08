@@ -21,6 +21,11 @@ RUN apt-get update \
         perl \
         poppler-utils \
         ripgrep \
+        tesseract-ocr \
+        tesseract-ocr-eng \
+        tesseract-ocr-jpn \
+        tesseract-ocr-jpn-vert \
+        tesseract-ocr-osd \
         texlive-fonts-recommended \
         texlive-lang-japanese \
         texlive-latex-extra \

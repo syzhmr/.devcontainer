@@ -34,6 +34,17 @@ cp -R "${root}/examples/latex" "${tmpdir}/latex"
 echo "== Jupyter =="
 jupyter --version
 
+echo "== OCR =="
+tesseract --version >/dev/null
+tesseract --list-langs | grep -Fxq "eng"
+tesseract --list-langs | grep -Fxq "jpn"
+tesseract --list-langs | grep -Fxq "jpn_vert"
+tesseract --list-langs | grep -Fxq "osd"
+python - <<'PY'
+import cv2
+print(cv2.__version__)
+PY
+
 echo "== Codex CLI =="
 codex --version
 

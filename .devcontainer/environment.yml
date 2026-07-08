@@ -9,6 +9,7 @@ dependencies:
   - jupyterlab
   - notebook
   - numpy
+  - opencv
   - scipy
   - sympy
   - matplotlib
