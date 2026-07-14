@@ -4,9 +4,27 @@
     "dockerfile": "Dockerfile",
     "context": "."
   },
+  "features": {
+    "ghcr.io/devcontainers/features/node:2.1.0": {
+      "version": "22.22.3",
+      "nodeGypDependencies": true,
+      "npmVersion": "10.9.8",
+      "pnpmVersion": "none",
+      "nvmVersion": "0.39.7"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1.1.0": {
+      "version": "2.94.0"
+    }
+  },
   "remoteUser": "vscode",
+  "waitFor": "postCreateCommand",
   "remoteEnv": {
-    "PATH": "/home/vscode/.local/bin:/home/vscode/.elan/bin:/opt/conda/bin:${containerEnv:PATH}"
+    "PATH": "/home/vscode/.local/bin:/home/vscode/.elan/bin:/opt/conda/bin:/usr/local/share/nvm/current/bin:${containerEnv:PATH}",
+    "DEVCONTAINER_NODE_VERSION": "22.22.3",
+    "DEVCONTAINER_NPM_VERSION": "10.9.8",
+    "DEVCONTAINER_GH_VERSION": "2.94.0",
+    "QMD_VERSION": "2.5.3",
+    "SHARDMIND_VERSION": "0.1.3"
   },
   "customizations": {
     "vscode": {
@@ -26,5 +44,5 @@
       }
     }
   },
-  "postCreateCommand": "bash .devcontainer/setup-workspace.sh \"${containerWorkspaceFolder}\" && python --version && sage --version && lean --version && lake --version && latexmk -version && pdfgrep --version && codex --version"
+  "postCreateCommand": "bash .devcontainer/setup-workspace.sh \"${containerWorkspaceFolder}\" && python --version && sage --version && lean --version && lake --version && latexmk -version && node --version && npm --version && qmd --version && shardmind --version && gh --version && magick -version && codex --version"
 }

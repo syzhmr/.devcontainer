@@ -14,25 +14,31 @@ RUN apt-get update \
         curl \
         fonts-noto-cjk \
         fonts-noto-color-emoji \
+        file \
         git \
+        jq \
         latexmk \
         make \
+        openssh-client \
         pdfgrep \
         perl \
         poppler-utils \
         ripgrep \
+        rsync \
         tesseract-ocr \
         tesseract-ocr-eng \
         tesseract-ocr-jpn \
         tesseract-ocr-jpn-vert \
         tesseract-ocr-osd \
         texlive-fonts-recommended \
+        texlive-lang-cyrillic \
         texlive-lang-japanese \
         texlive-latex-extra \
         texlive-latex-recommended \
         texlive-luatex \
         texlive-science \
         texlive-xetex \
+        tmux \
     && rm -rf /var/lib/apt/lists/*
 
 COPY environment.yml /tmp/environment.yml
@@ -40,6 +46,7 @@ COPY environment.yml /tmp/environment.yml
 RUN conda config --system --add channels conda-forge \
     && conda config --system --set channel_priority strict \
     && conda env update -n base -f /tmp/environment.yml \
+    && magick -version \
     && conda clean -afy
 
 USER ${USERNAME}

@@ -1,0 +1,14 @@
+\documentclass[uplatex,dvipdfmx]{jsarticle}
+\usepackage{amsmath,amssymb}
+\usepackage[OT2,T1]{fontenc}
+
+\DeclareSymbolFont{cyrletters}{OT2}{wncyr}{m}{n}
+\DeclareMathSymbol{\Sha}{\mathalpha}{cyrletters}{"58}
+
+\begin{document}
+
+\section*{FO upLaTeX toolchain example}
+
+OT2 encoding と wncyr font を使う数式 $\Sha(A/K)$ の動作確認です。
+
+\end{document}

@@ -10,6 +10,7 @@ dependencies:
   - notebook
   - numpy
   - opencv
+  - imagemagick=7.1
   - scipy
   - sympy
   - matplotlib
